@@ -1,6 +1,7 @@
 import Rescard from "./Rescard";
 // import resList from "../utils/resList";
 import{ useState ,useEffect } from "react"
+import Shimmercard from "./Shimmercard";
 
 
 const Body = () => {
@@ -18,9 +19,24 @@ const Body = () => {
 
   };
 
+  const mapper=[0,1,2,3,4,5,6,7];
   if(listres.length===0){
-    return<h1>Loading</h1>
-  }
+    return (
+      <div className="body">
+        <div className="filter">
+          <button
+            className="filterbtn"
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+        <div className="res-con">
+        {mapper.map(recard=>(<Shimmercard/>))}
+         
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="body">

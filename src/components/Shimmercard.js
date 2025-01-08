@@ -1,24 +1,20 @@
 
 const Shimmercard = () => {
   return (
-    <div className="res-card">
-      <img
-        alt="res-logo"
-        className="res-img"
-        // src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_324,c_fill/"+cloudinaryImageId}
-      />
-      {/* {console.log(resData)} */}
-      <div className="cardletter">
-      <h3>---------</h3>
+    <div className="res-scard">
+      <div className="simg"></div>
+    <div className="cardletter">
+      <div className="sfiller"></div>
       <br />
-      <h4>-----------</h4>
+      <div className="sfiller"></div>
       <br />
-      <h4>-----------</h4>
+      <div className="sfiller"></div>
       <br />
-      <h4>----------------</h4>
+      <div className="sfiller"></div>
       <br />
-      <h4>-------------s</h4>
+      <div className="sfiller"></div>
       </div>
+
     </div>
   )
 }
