@@ -1,5 +1,5 @@
 import Rescard from "./Rescard";
-import resList from "../utils/data";
+import resList from "../utils/resList";
 
 
 const Body = () => {
@@ -16,32 +16,8 @@ const Body = () => {
         </button>
       </div>
       <div className="res-con">
-        <Rescard
-          resname="Meghana foods"
-          cuisine="Biryani,North Indian,Asian"
-          rating="4.4"
-          time="38 minuters"
-        />
-        <Rescard
-          resname="KFC"
-          cuisine="Burger, Fast food"
-          rating="3.4"
-          time="54 minuters"
-        />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
-        <Rescard />
+      {resList.map(recard=>(<Rescard key={recard.data.id} resData={recard}/>))}
+       
       </div>
     </div>
   );
