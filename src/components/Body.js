@@ -1,20 +1,37 @@
 import Rescard from "./Rescard";
-import resList from "../utils/resList";
-import{ useState } from "react"
+// import resList from "../utils/resList";
+import{ useState ,useEffect } from "react"
 
 
 const Body = () => {
-  const[listres, setlistres]=useState(resList);
+  const[listres, setlistres]=useState([]);
+
+  useEffect(()=>{
+    fetchapi()
+  });
+
+  const fetchapi=async ()=>{
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8498232&lng=77.64768149999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const json = await data.json();
+    setlistres(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+
+  };
+
+  if(listres.length===0){
+    return<h1>Loading</h1>
+  }
+
   return (
     <div className="body">
       <div className="filter">
         <button
           className="filterbtn"
           onClick={() => {
-            const filteredlist =resList.filter(
-              (res)=> res.data.avgRating > 4
+            const filteredlist = listres.filter(
+              (res) => res.info.avgRating > 4
             );
-            console.log(filteredlist  );
+            console.log(filteredlist);
             setlistres(filteredlist);
           }}
         >
@@ -22,7 +39,7 @@ const Body = () => {
         </button>
       </div>
       <div className="res-con">
-      {listres.map(recard=>(<Rescard key={recard.data.id} resData={recard}/>))}
+      {listres.map(recard=>(<Rescard key={recard.info.id} resData={recard}/>))}
        
       </div>
     </div>

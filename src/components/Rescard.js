@@ -1,7 +1,7 @@
 const Rescard = (props) => {
   const { resData } = props;
 
-  const {name,cuisines,avgRating,costForTwo,deliveryTime,cloudinaryImageId}=resData?.data;
+  const {name,cuisines,avgRating,costForTwo,deliveryTime,cloudinaryImageId}=resData?.info;
 
   return (
     <div className="res-card">
