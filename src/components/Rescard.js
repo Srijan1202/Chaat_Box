@@ -13,9 +13,13 @@ const Rescard = (props) => {
       {/* {console.log(resData)} */}
       <div className="cardletter">
       <h3>{name}</h3>
+      <br />
       <h4>{cuisines?.join(", ")}</h4>
+      <br />
       <h4>{avgRating} Stars</h4>
+      <br />
       <h4>{costForTwo} For Two</h4>
+      <br />
       <h4>{deliveryTime} minutes</h4>
       </div>
     </div>
