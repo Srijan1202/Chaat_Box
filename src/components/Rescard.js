@@ -1,7 +1,7 @@
 const Rescard = (props) => {
   const { resData } = props;
 
-  const {name,cuisines,avgRating,costForTwo,deliveryTime,cloudinaryImageId}=resData?.info;
+  const {name,cuisines,avgRating,costForTwo,sla,cloudinaryImageId}=resData?.info;
 
   return (
     <div className="res-card">
@@ -18,9 +18,9 @@ const Rescard = (props) => {
       <br />
       <h4>{avgRating} Stars</h4>
       <br />
-      <h4>{costForTwo} For Two</h4>
+      <h4>{costForTwo}</h4>
       <br />
-      <h4>{deliveryTime} minutes</h4>
+      <h4>{sla.slaString} minutes</h4>
       </div>
     </div>
   );

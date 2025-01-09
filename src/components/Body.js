@@ -6,6 +6,7 @@ import Shimmercard from "./Shimmercard";
 
 const Body = () => {
   const[listres, setlistres]=useState([]);
+  const[fillistres, setfillistres]=useState([]);
 
   const[sertxt, setsertxt]= useState([]);
 
@@ -17,6 +18,7 @@ const Body = () => {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8498232&lng=77.64768149999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
     setlistres(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setfillistres(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
 
   };
@@ -31,6 +33,10 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+          <div className="Search">
+          <input type="text" className="srbox"/>
+          <button className="srbut">Search</button>
+        </div>
         </div>
         <div className="res-con">
         {mapper.map(recard=>(<Shimmercard/>))}
@@ -61,12 +67,12 @@ const Body = () => {
             const filtered = listres.filter((res)=>{
               return res.info.name.toLowerCase().includes(sertxt.toLowerCase());
             });
-            setlistres(filtered);
+            setfillistres(filtered);
           }}>Search</button>
         </div>
       </div>
       <div className="res-con">
-      {listres.map(recard=>(<Rescard key={recard.info.id} resData={recard}/>))}
+      {fillistres.map(recard=>(<Rescard key={recard.info.id} resData={recard}/>))}
        
       </div>
     </div>
