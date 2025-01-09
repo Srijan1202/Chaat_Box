@@ -7,6 +7,8 @@ import Shimmercard from "./Shimmercard";
 const Body = () => {
   const[listres, setlistres]=useState([]);
 
+  const[sertxt, setsertxt]= useState([]);
+
   useEffect(()=>{
     fetchapi()
   });
@@ -53,6 +55,15 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        <div className="Search">
+          <input type="text" className="srbox" value ={sertxt} onChange={(e)=>setsertxt(e.target.value)}/>
+          <button className="srbut" onClick={()=>{
+            const filtered = listres.filter((res)=>{
+              return res.info.name.toLowerCase().includes(sertxt.toLowerCase());
+            });
+            setlistres(filtered);
+          }}>Search</button>
+        </div>
       </div>
       <div className="res-con">
       {listres.map(recard=>(<Rescard key={recard.info.id} resData={recard}/>))}
