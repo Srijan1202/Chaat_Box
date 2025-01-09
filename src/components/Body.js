@@ -11,7 +11,7 @@ const Body = () => {
 
   useEffect(()=>{
     fetchapi()
-  });
+  },[]);
 
   const fetchapi=async ()=>{
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8498232&lng=77.64768149999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
