@@ -2,6 +2,8 @@ import Rescard from "./Rescard";
 // import resList from "../utils/resList";
 import{ useState ,useEffect } from "react"
 import Shimmercard from "./Shimmercard";
+import { res_Api } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -15,11 +17,11 @@ const Body = () => {
   },[]);
 
   const fetchapi=async ()=>{
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8498232&lng=77.64768149999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch(res_Api);
     const json = await data.json();
     setlistres(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setfillistres(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+    console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
 
   };
 
@@ -72,7 +74,7 @@ const Body = () => {
         </div>
       </div>
       <div className="res-con">
-      {fillistres.map(recard=>(<Rescard key={recard.info.id} resData={recard}/>))}
+      {fillistres.map(recard=>(<Link to ={"/restaurants/"+recard.info.id} key={recard.info.id} > <Rescard  resData={recard}/></Link>))}
        
       </div>
     </div>
