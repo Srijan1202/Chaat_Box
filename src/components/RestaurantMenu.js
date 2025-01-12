@@ -51,7 +51,7 @@ const RestaurantMenu = () =>{
                         <br />
                         <li>{item.card.info.description}</li>
                     </ul>
-                <img className="itemimg" alt="itemimg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,e_grayscale,c_fit/"+item.card.info.imageId}/>
+                <img className="itemimg" alt="itemimg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/"+item.card.info.imageId}/>
                 </div>
 ))}
         </div>

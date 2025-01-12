@@ -15,7 +15,7 @@ const Body = () => {
   useEffect(()=>{
     fetchapi()
   },[]);
-
+  
   const fetchapi=async ()=>{
     const data = await fetch(res_Api);
     const json = await data.json();
