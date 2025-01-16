@@ -1,4 +1,5 @@
 import './App.css';
+import React, { lazy, Suspense } from "react";
 import Header from "./components/Header"
 import Body from "./components/Body"
 import{createBrowserRouter} from "react-router-dom"
@@ -8,13 +9,15 @@ import Error from "./components/Error"
 import {Outlet} from "react-router-dom"
 import RestaurantMenu from './components/RestaurantMenu';
 
-const Footer=()=>{
-  return(
-    <div className="footer">
+// const Footer=()=>{
+//   return(
+//     <div className="footer">
 
-    </div>
-  );
-};
+//     </div>
+//   );
+// };
+
+const Grocery =  lazy(()=>import("./components/Grocery"));
 
 function App() {
   return (
@@ -23,7 +26,7 @@ function App() {
 
   <Outlet/>
 
-  <Footer/>
+  {/* <Footer/> */}
 
 </div>
   );
@@ -49,6 +52,10 @@ const appRouter=createBrowserRouter([
       {
         path:"/restaurants/:resId",
         element:<RestaurantMenu/>
+      },
+      {
+        path:"/grocery",
+        element:<Suspense fallback={<h1>this is the loading page</h1>}><Grocery/></Suspense>
       }
 
     ],
