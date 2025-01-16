@@ -2,11 +2,19 @@
 import Shimmercard from "./Shimmercard";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestaurantMenu = () =>{
 
     const {resId} = useParams();
     const {resInfo}=useRestaurantMenu(resId);
+
+    const onlineStatus=useOnlineStatus();
+    if(onlineStatus===false){
+      return(
+        <h1>You are offline. Please check your connection.</h1>
+      );
+    };
 
     if(resInfo===null){
         return(
@@ -16,6 +24,7 @@ const RestaurantMenu = () =>{
     const {name,cuisines,costForTwoMessage}=resInfo?.cards[2]?.card?.card?.info;
     const {itemCards}=resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card?.card;
     // console.log(itemCards)
+    
     return(
 
         <div className="menu">

@@ -1,17 +1,24 @@
 import { useState } from "react";
 import {Logo_URL} from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Header=()=>{
   const [sign, setsign] = useState("Signed In");
+
+  const onlineStatus=useOnlineStatus();
+  const signed = onlineStatus ? "✅" : "🔴";
+
     return(
+
     <div className="header">
       <div className="img">
         <img className='logo' src={Logo_URL} alt="logo"/>
       </div>
       <div className="nav-item">
         <ul>
+          <li>OnlineStatus:{signed}</li>
           <li>
             <Link to ="/">Home</Link>
             </li>

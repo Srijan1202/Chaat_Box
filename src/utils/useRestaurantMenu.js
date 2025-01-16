@@ -8,7 +8,7 @@ const useRestaurantMenu=(resId)=>{
     useEffect(()=>{
         fetchit()
     },[]);
-
+    
     console.log(resInfo)
 
     const fetchit =async()=>{

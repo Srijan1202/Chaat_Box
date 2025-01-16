@@ -4,6 +4,7 @@ import{ useState ,useEffect } from "react"
 import Shimmercard from "./Shimmercard";
 import { res_Api } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -22,9 +23,20 @@ const Body = () => {
     setlistres(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setfillistres(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
-
+    
   };
 
+  const onlineStatus=useOnlineStatus();
+  if(onlineStatus===false){
+    return(
+      <h1>You are offline. Please check your connection.</h1>
+    );
+  };
+
+  // if (!onlineStatus) {
+  //   return <h1 className="offline-message">You are offline. Please check your connection.</h1>;
+  // }
+  
   const mapper=[0,1,2,3,4,5,6,7];
   if(listres.length===0){
     return (
@@ -47,6 +59,7 @@ const Body = () => {
       </div>
     );
   };
+
 
   return (
     <div className="body">

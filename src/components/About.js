@@ -22,6 +22,7 @@ class About extends React.Component{
     }
     render(){
         console.log("parent render")
+        
         return (
             <div className="aboutcontainer">
                 <UserClass name={"Class"} info={"this is the class"} contact={"8972482234"}/>
