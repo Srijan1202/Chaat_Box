@@ -201,9 +201,19 @@
   color: rgb(69, 69, 69);
 }
 
+
 .user{
+  display: inline-flex;
+  flex-direction: column ;
   margin: 30px;
   padding: 10px;
-  color: rgb(69, 69, 69);
   border: 1px solid black;
+  /* flex-basis: content; */
+
+}
+
+.user > img{
+  /* display: inline-flex; */
+  height: 40vh;
+  width: 20vw;
 }
