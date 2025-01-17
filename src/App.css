@@ -123,7 +123,7 @@
 }
 .srbox{
   background-color: lightgrey;
-  /* font-weight: 540; */
+ 
   margin: 10px 0px 10px 10px;
   padding: 5px;
   border-radius: 5px;
@@ -138,7 +138,7 @@
   border: 1px solid black;
 }
 
-.itemdis{
+/* .itemdis{
   display: flex;
   justify-content: space-between;
   margin: 2vw 10vw 2vw 10vw;
@@ -165,8 +165,6 @@
 }
 .itemdis>img{
   width: 200px;
-  /* width: 100px; */
-  /* height: 100px; */
   border-radius: 10px;
 }
 
@@ -189,12 +187,11 @@
   margin: 30px;
   padding: 10px;
   color: rgb(69, 69, 69);
-}
+} */
 
 .aboutcontainer{
   display: flex; 
   flex-direction: column;
-  /* justify-content: left; */
   align-items: right;
   margin: 30px;
   padding: 10px;
@@ -216,4 +213,13 @@
   /* display: inline-flex; */
   height: 40vh;
   width: 20vw;
+}
+
+.openres{
+  position: absolute;
+  background: black;
+  color: white;
+  padding: 1px;
+  margin: 1px;
+  border-radius: 5px;
 }

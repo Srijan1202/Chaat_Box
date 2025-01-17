@@ -30,4 +30,16 @@ const Rescard = (props) => {
   );
 };
 
+
+export const Openreses = (Rescard) => {
+  return (props) => {
+    return (
+      <div>
+        <label htmlFor="open" className="openres"> Open </label>
+        <Rescard {...props}/>
+      </div>
+    );
+  };
+}
+
 export default Rescard;
