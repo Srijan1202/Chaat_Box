@@ -2,7 +2,7 @@
 const Grocery = () =>{
     return(
         <div className="Grocery">
-            <h1>This is the grocery page. You can buy grocery here</h1>
+            <h1>This is the grocery page. You can buy grocery</h1>
         </div>
     );
 }
