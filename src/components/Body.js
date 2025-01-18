@@ -1,12 +1,14 @@
 import Rescard, { Openreses } from "./Rescard";
 // import resList from "../utils/resList";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import Shimmercard from "./Shimmercard";
 import { res_Api } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserConstext from "../utils/UserContext";
 
 const Body = () => {
+  const {setusername,loginfo}=useContext(UserConstext);
   const [listres, setlistres] = useState([]);
   const [fillistres, setfillistres] = useState([]);
 
@@ -72,7 +74,14 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        
+        <input  
+        type="text"
+        value={loginfo}
+        onChange={(e) => setusername(e.target.value)}/>
+        
         <div className="Search">
+
           <input
             type="text"
             className="srbox"

@@ -3,13 +3,14 @@ import Shimmercard from "./Shimmercard";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import Rescategory from "./Rescategory";
+// import Rescategory from "./Rescategory";
 import { useState } from "react";
 import Rescat from "./Rescat";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const { resInfo } = useRestaurantMenu(resId);
+  const [show, setShow] = useState(1);
  
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
@@ -40,11 +41,8 @@ const RestaurantMenu = () => {
       </div>
       
       <h2 className="flex text-center justify-center m-10">Menu</h2>
-      {category.map((c) => {
-        
-      return(
-        <Rescat c={c}/>
-      )})}
+      {category.map((c,index) =>
+        <Rescat c={c} show={index===show?true:false} setshow={()=>setShow(index)}/>)}
     </div>
   );
 };

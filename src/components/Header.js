@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import {Logo_URL} from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserConstext from "../utils/UserContext";
 
 
 const Header=()=>{
   const [sign, setsign] = useState("Signed In");
-
   const onlineStatus=useOnlineStatus();
   const signed = onlineStatus ? "✅" : "🔴";
+  const {loginfo}=useContext(UserConstext)
 
     return(
 
@@ -32,6 +33,7 @@ const Header=()=>{
             <Link to ="grocery">Grocery</Link>
             </li>
             <li>Cart</li>
+            <li>{loginfo}</li>
           <button className="sign" onClick={()=>{
             if(sign==="Signed In"){
               setsign("Signed Out")
