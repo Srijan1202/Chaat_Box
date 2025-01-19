@@ -1,4 +1,5 @@
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
+import { useSelector } from "react-redux";
 import {Logo_URL} from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -9,7 +10,9 @@ const Header=()=>{
   const [sign, setsign] = useState("Signed In");
   const onlineStatus=useOnlineStatus();
   const signed = onlineStatus ? "✅" : "🔴";
-  const {loginfo}=useContext(UserConstext)
+  const {loginfo}=useContext(UserConstext);
+  const cart= useSelector((store)=>store.cart.items);
+
 
     return(
 
@@ -32,7 +35,10 @@ const Header=()=>{
           <li>
             <Link to ="grocery">Grocery</Link>
             </li>
-            <li>Cart</li>
+            <li>
+            <Link to="cart">Cart(item:{cart.length})</Link>
+            </li>
+
             <li>{loginfo}</li>
           <button className="sign" onClick={()=>{
             if(sign==="Signed In"){

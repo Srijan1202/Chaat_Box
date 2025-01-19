@@ -27,9 +27,6 @@ const Body = () => {
     setfillistres(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    console.log(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
   };
 
   const Openres = Openreses(Rescard);

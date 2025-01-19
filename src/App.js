@@ -9,6 +9,9 @@ import Error from "./components/Error"
 import {Outlet} from "react-router-dom"
 import RestaurantMenu from './components/RestaurantMenu';
 import UserConstext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
+import Cart from './components/Cart';
 
 
 
@@ -24,6 +27,7 @@ function App() {
   }, []);
 
   return (
+    <Provider store={appStore}>
     <UserConstext.Provider value={{loginfo:username, setusername}}>
 <div>
   <Header/>
@@ -32,6 +36,7 @@ function App() {
 
 </div>
 </UserConstext.Provider>
+  </Provider>
   );
 }
 
@@ -59,6 +64,10 @@ const appRouter=createBrowserRouter([
       {
         path:"/grocery",
         element:<Suspense fallback={<h1>this is the loading page</h1>}><Grocery/></Suspense>
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
       }
 
     ],
